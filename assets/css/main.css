@@ -1,0 +1,19 @@
+#timer {
+  background-color: white;
+}
+  
+#bar {
+  background-color:green
+}
+
+#game {
+  display: none;
+}
+
+#answercard {
+  display:none;
+}
+
+.col-lg-6.answer.hvr-back-pulse {
+  border: 1px solid red;
+}
