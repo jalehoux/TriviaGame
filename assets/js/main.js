@@ -8,31 +8,41 @@ var game = {
         {
         question: "How many NBA Championships have the Boston Celtics wons?",
         c_answer: 19,
-        answers: [16,18,20,19]
+        answers: [16,18,20,19],
+        explanation: "The Celtics are the all time leaders in NBA Championships",
+        img: "test"
         },
         {
         question: "What player scored the most points in one game?",
         c_answer: "Wilt Chamberlain",
-        answers: ["Wilt Chamberlain", "Michael Jordan", "Lebron James", "Erving \"Magic\" Johnson"]
+        answers: ["Wilt Chamberlain", "Michael Jordan", "Lebron James", "Erving \"Magic\" Johnson"],
+        explanation: "The Celtics are the all time leaders in NBA Championships",
+        img: "test"
         },
         {
         question: "What is Kareem Abdul-Jabbar's birth name?",
         c_answer: "Lew Alcindor",
-        answers: ["Lew Alcindor", "Travis Wright", "Shaquille O'Neill", "Kareem Abdul-Jabbar is his birth name"]
+        answers: ["Lew Alcindor", "Travis Wright", "Shaquille O'Neill", "Kareem Abdul-Jabbar is his birth name"],
+        explanation: "The Celtics are the all time leaders in NBA Championships",
+        img: "test"
         },
         {
         question: "Who has the most career points in the playoffs?",
         c_answer: "Michael Jordan",
-        answers: ["Michael Jordan", "Larry Bird", "Wilt Chamberlain", "Kareem Abdul-Jabbar"]
+        answers: ["Michael Jordan", "Larry Bird", "Wilt Chamberlain", "Kareem Abdul-Jabbar"],
+        explanation: "The Celtics are the all time leaders in NBA Championships",
+        img: "test"
         },
         {
         question: "What team has the best record in one season?",
         c_answer: "2015-2016 Golden State Warriors",
-        answers: ["2015-2016 Golden State Warriors", "1995-96 Chicago Bulls", "1986-87 Los Angeles Lakers", "1985-86 Boston Celtics"]
+        answers: ["2015-2016 Golden State Warriors", "1995-96 Chicago Bulls", "1986-87 Los Angeles Lakers", "1985-86 Boston Celtics"],
+        explanation: "The Celtics are the all time leaders in NBA Championships",
+        img: "test"
         },        
     ],
     $template:                 
-    "<div class='row'><div class='col-lg-6 answer hvr-back-pulse' onclick='game.answeredquestion()'><p class='answer'></p></div></div>",
+    "<div class='col-lg-6 answer hvr-back-pulse' onclick='game.answeredquestion()'><p class='answer'></p></div><",
     start: function() {
         game.setquestion();
         game.progress(5, 5, $('#timer'));
@@ -64,13 +74,17 @@ var game = {
         $('#game').hide()
         $('#answercard').show();
         this.stats.numquestions--;
-        if(type === 'c'){
-            console.log("correct");
-            this.correct++
-        } else {
-            console.log("incorrect");
-            this.incorrect++
+        if(this.stats.numquestions === 0) {
+            $('.btn btn-success end').attr('onclick','reset()').html("Play Again!");
         }
+        if(type === 'c'){
+            this.stats.correct++
+            $('#outcome').html('Correct!')
+        } else {
+            this.stats.incorrect++
+            $('#outcome').html('Wrong!')
+        }
+        $('#explanation').html()
     },
     reset: function() {
         console.log("reset");
@@ -84,9 +98,9 @@ var game = {
         let answer = currentq.c_answer;
         allanswers.forEach(function(element){
             if(element === answer) {
-                $('.col-lg-12.answer').append("<div class='row'><div class='col-lg-6 answer hvr-back-pulse' onclick='game.answeredquestion(\"c\")'><p class='answer'>"+element+"</p></div></div>");
+                $('.col-lg-12.answer').append("<div class='col-md-6 answer hvr-back-pulse' onclick='game.answeredquestion(\"c\")'><p class='answer'>"+element+"</p></div>");
             } else {
-                $('.col-lg-12.answer').append("<div class='row'><div class='col-lg-6 answer hvr-back-pulse' onclick='game.answeredquestion(\"i\")'><p class='answer'>"+element+"</p></div></div>");
+                $('.col-lg-12.answer').append("<div class='col-md-6 answer hvr-back-pulse' onclick='game.answeredquestion(\"i\")'><p class='answer'>"+element+"</p></div>");
             }   
         })
     }
