@@ -46,6 +46,10 @@ body {
   border-radius: 25px;
 }
 
+.answer{
+  border-radius: 25px;
+}
+
 .col-lg-6.answer.hvr-back-pulse {
   border: 1px solid red;
 }
