@@ -11,6 +11,7 @@ html, body, #all{
   text-align: center;
   margin-top: 10px;
   padding: 5px;
+  border-radius: 25px;
 }
 
 body {
@@ -20,18 +21,29 @@ body {
 
 #timer {
   background-color: black;
+  border-radius: 25px;
 }
   
 #bar {
-  background-color:green
+  background-color:green;
+  height: 30px;
+  font-size: 18px;
 }
 
 #game {
   display: none;
+  border-radius: 25px;
 }
 
 #answercard {
   display:none;
+  border-radius: 25px;
+}
+
+#endgame {
+  font-size: 20px;
+  background-color:grey;
+  border-radius: 25px;
 }
 
 .col-lg-6.answer.hvr-back-pulse {
