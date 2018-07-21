@@ -46,7 +46,7 @@ var game = {
     "<div class='col-lg-6 answer hvr-back-pulse' onclick='game.answeredquestion()'><p class='answer'></p></div><",
     start: function() {
         game.setquestion();
-        game.progress(5, 5, $('#timer'));
+        game.progress(10, 10, $('#timer'));
         $("#title").hide();
         $('#game').show();
         this.stats.numquestions = this.questions.length + 1;
@@ -69,7 +69,7 @@ var game = {
         $('#answercard').hide();
         $('.col-lg-12.answer').html('');
         game.setquestion();
-        game.progress(5, 5, $('#timer'));
+        game.progress(10, 10, $('#timer'));
     },
     answeredquestion: function(type) {
         clearTimeout(loop);
